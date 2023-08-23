@@ -53,7 +53,7 @@ void _fnct_error(info_t *str, char *error)
  */
 int _decimal(int var, int file)
 {
-	int (*_putchar) (char) = _putchar;
+	int (*_putchar)(char) = _putchar;
 	int i, count = 0;
 	unsigned int abc, crt;
 
@@ -89,7 +89,7 @@ int _decimal(int var, int file)
  * @flag: argument flags
  * Return: string
  */
-char *str_convertion(long int n, int var, int flag)
+char *str_convertion(long int n, int variable, int flag)
 {
 	static char *array;
 	static char buffer[50];
@@ -107,8 +107,8 @@ char *str_convertion(long int n, int var, int flag)
 	pointer = &buffer[49];
 	*pointer = '\0';
 	do {
-		*--pointer = array[m % var];
-		m /= var;
+		*--pointer = array[m % variable];
+		m /= variable;
 	} while (m != 0);
 	if (s)
 		*--pointer = s;
