@@ -31,18 +31,18 @@ char *_strcopy2(char *est, char *str, int m)
 }
 
 /**
- * strcharacter - locates a character
+ * _strcharacter - locates a character
  * @c: parsed
  * @m: character
  * Return: pointer to the memory area
  */
-char *_strcharacter(char *c , char m)
+char *_strcharacter(char *c, char m)
 {
 	do {
-		if(*c == m)
-			return(c);
+		if (*c == m)
+			return (c);
 	} while (*c++ != '\0');
-	return(NULL);
+	return (NULL);
 }
 
 /**
