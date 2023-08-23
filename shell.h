@@ -184,6 +184,7 @@ ssize_t put_buffer(info_t *, char **, size_t *);
 int next_line(info_t *, char **, size_t *);
 void fnct_handler(int);
 ssize_t input_(info_t *);
+ssize_t readbuffer(info_t *info, char *buffer, size_t *var);
 
 /* info.c */
 void free_info(info_t *);
