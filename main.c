@@ -21,7 +21,7 @@ int main(int arg, char **arg1)
 		if (var == -1)
 		{
 			if (errno == EACCES)
-				exit (126);
+				exit(126);
 			if (errno == ENOENT)
 			{
 				er_puts(arg1[0]);
