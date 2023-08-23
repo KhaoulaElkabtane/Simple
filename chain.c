@@ -44,7 +44,8 @@ int my_chain(info_t *info, char *buffer, size_t *position)
  * @lgt: length of buffer
  * Return: Nothing
 */
-void chain_ck(info_t *info, char *buffer, size_t *position, size_t i, size_t lgt)
+void chain_ck(info_t *info, char *buffer, size_t *position,
+		size_t i, size_t lgt)
 {
 	size_t p = *position;
 
@@ -111,13 +112,15 @@ int var_replacing(info_t *info)
 			continue;
 		if (!_strcomparison(info->argv[i], "$?"))
 		{
-			str_replacing(&(info->argv[i]), _strduplication(str_convertion(getpid(), 10, 0)));
+			str_replacing(&(info->argv[i]),
+					_strduplication(str_convertion(getpid(), 10, 0)));
 			continue;
 		}
 		nd = _nstart(info->env, &info->argv[i][1], '=');
 		if (nd)
 		{
-			str_replacing(&(info->argv[i]), _strduplication(_strcharacter(nd->str, '=') + 1));
+			str_replacing(&(info->argv[i]),
+					_strduplication(_strcharacter(nd->str, '=') + 1));
 			continue;
 		}
 		str_replacing(&info->argv[i], _strduplication(""));
