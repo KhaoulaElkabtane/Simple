@@ -92,9 +92,9 @@ size_t list_str(const list_t *tr)
 
 /**
  * node_index - deletes node at given ingex
- * @hd : address pointer first node
- * @dex : index of node to delete
- * Return : 1 if true, 0 if false
+ * @hd: address pointer first node
+ * @dex: index of node to delete
+ * Return: 1 if true, 0 if false
  */
 int node_index(list_t **hd, unsigned int dex)
 {
@@ -137,7 +137,7 @@ void l_free(list_t **head)
 {
 	list_t *node, *nnode, *hd;
 
-	if(!head || !*head)
+	if (!head || !*head)
 		return;
 	hd = *head;
 	node = hd;
