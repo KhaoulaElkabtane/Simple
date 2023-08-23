@@ -85,9 +85,9 @@ typedef struct passinfo
 	list_t *alias;
 	char **environ;
 	int env_changed;
-	int status ;
-	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
-	int cmd_buf_type; /* CMD type ||, &&, ; */
+	int status;
+	char **cmd_buf;
+	int cmd_buf_type;
 	int readfd;
 	int histcount;
 } info_t;
