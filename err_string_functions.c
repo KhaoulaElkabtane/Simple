@@ -9,7 +9,7 @@ void er_puts(char *c)
 {
 	int i = 0;
 
-	if(!c)
+	if (!c)
 		return;
 	while (c[i] != '\0')
 	{
@@ -28,7 +28,7 @@ int erputchar(char ch)
 	static int i;
 	static char buffer[WRITE_BUF_SIZE];
 
-	if(ch == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (ch == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
 		write(2, buffer, i);
 		i = 0;
@@ -48,7 +48,7 @@ int _puts(char *str, int file)
 {
 	int i = 0;
 
-	if(!str)
+	if (!str)
 		return (0);
 	while (*str)
 	{
