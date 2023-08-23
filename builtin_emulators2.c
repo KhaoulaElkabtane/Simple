@@ -38,7 +38,7 @@ int remove_alias(info_t *info, char *str)
  * str_alias - sets alias to string
  * @info: struct containing
  * @str: string alias
- * Return : 1 if true or 0 if false
+ * Return: 1 if true or 0 if false
 */
 int str_alias(info_t *info, char *str)
 {
@@ -68,8 +68,8 @@ int p_alias(list_t *info)
 		for (st = info->str; st <= d; st++)
 			_putchar(*st);
 		_putchar('\'');
-		_strputs (d + 1);
-		_strputs ("'\n");
+		_strputs(d + 1);
+		_strputs("'\n");
 		return (0);
 	}
 	return (1);
@@ -78,7 +78,6 @@ int p_alias(list_t *info)
 /**
  * _alias - mimics the alias builtin
  * @info: struct containing
- *
  * Return: 0
 */
 int _alias(info_t *info)
