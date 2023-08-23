@@ -72,7 +72,7 @@ ssize_t input_(info_t *info)
 				break;
 			j++;
 		}
-		i = j +1;
+		i = j + 1;
 		if (i >= l)
 		{
 			i = l = 0;
@@ -153,10 +153,12 @@ int next_line(info_t *info, char **pointer, size_t *siz)
 
 
 /**
- * _getline - blocks ctrl-c
- * @info : the signal number
- * 
- * Return : nothing
+ * _getline - Read a line from input using a buffer.
+ * @info: Pointer to the info_t struct containing data.
+ * @pointer: Pointer to the buffer storing the line.
+ * @len: Pointer to the length of the line.
+ *
+ * Return: The number of characters read, or -1 on failure.
  */
 int _getline(info_t *info, char **pointer, size_t *len)
 {
@@ -165,11 +167,11 @@ int _getline(info_t *info, char **pointer, size_t *len)
 	size_t j;
 	ssize_t str = 0, sts = 0;
 	char *p = NULL, *np = NULL, *s;
-	
+
 	p = *pointer;
 	if (p && len)
 		sts = *len;
-	if ( i == gh)
+	if (i == gh)
 		i = gh = 0;
 	str = reqd_buffer(info, buffer, &gh);
 	if (str == -1 || (str == 0 && gh == 0))
