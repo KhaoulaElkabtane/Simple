@@ -15,7 +15,7 @@ size_t l_length(const list_t *head)
 		i++;
 	}
 	return (i);
- }
+}
 
 /**
  * list_string - array of string the list->str
