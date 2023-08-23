@@ -36,23 +36,21 @@
 
 extern char **environ;
 
-
 /**
  * struct liststr - singly linked list
- * @num: the number field
- * @str: a string
- * @next: points to the next node
-*/
+ * @num: field number
+ * @str: string
+ * @next: pointer to next node
+ */
 typedef struct liststr
 {
-       int num;
-       char  *str;
-       struct liststr *next;
+	int num;
+	char  *str;
+	struct liststr *next;
 } list_t;
 
 /**
  * struct passinfo - contains pseudo-arguements to pass into a function,
- *                  allowing uniform prototype for function pointer struct
  * @arg: a string generated from getline containing arguements
  * @argv: an array of strings generated from arg
  * @path: a string path for the current command
@@ -74,38 +72,38 @@ typedef struct liststr
  */
 typedef struct passinfo
 {
-       char *arg;
-       char **argv;
-       char *path;
-       int argc;
-       unsigned int line_count;
-       int err_num;
-       int linecount_flag;
-       char *fname;
-       list_t *env;
-       list_t *history;
-       list_t *alias;
-       char **environ;
-       int env_changed;
-       int status ;
-       char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
-       int cmd_buf_type; /* CMD type ||, &&, ; */
-       int readfd;
-       int histcount;
+	char *arg;
+	char **argv;
+	char *path;
+	int argc;
+	unsigned int line_count;
+	int err_num;
+	int linecount_flag;
+	char *fname;
+	list_t *env;
+	list_t *history;
+	list_t *alias;
+	char **environ;
+	int env_changed;
+	int status ;
+	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
+	int cmd_buf_type; /* CMD type ||, &&, ; */
+	int readfd;
+	int histcount;
 } info_t;
 
 #define INFO_INIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 0, 0}
 
 /**
- *struct builtin - contains a builtin string and related function
- *@type: the builtin command flag
- *@func: the function
+ * struct builtin - contains a builtin string and related function
+ * @type: the builtin command flag
+ * @func: the function
  */
 typedef struct builtin
 {
-      char *type;
-      int (*func)(info_t *);
+	char *type;
+	int (*func)(info_t *);
 } builtin_table;
 
 /* hsh.c */
@@ -116,7 +114,7 @@ void fcmd(info_t *);
 
 /* path.c */
 int fnct_cmd(info_t *, char *);
-char *fnct_dup(char *, int, int) ;
+char *fnct_dup(char *, int, int);
 char *creat_path(info_t *, char *, char *);
 
 /* loophsh.c */
