@@ -59,7 +59,7 @@ int cd_directory(info_t *info)
 			return (1);
 		}
 		_strputs(get_envirenement(info, "OLDPWD=")), _putchar('\n');
-		chdir_ret = chdir ((dir = get_envirenement(info, "OLDPWD=")) ? dir : "/");
+		chdir_ret = chdir((dir = get_envirenement(info, "OLDPWD=")) ? dir : "/");
 	}
 	else
 		chdir_ret = chdir(info->argv[1]);
