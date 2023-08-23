@@ -46,7 +46,7 @@ int _getline(info_t *info, char **pointer, size_t *len)
 /**
  * fnct_handler - blocks ctrl-c
  * @info : the signal number
- * 
+ *
  * Return: nothing
  */
 void fnct_handler(__attribute__((unused))int info)
