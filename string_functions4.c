@@ -16,7 +16,7 @@ char **_strwords(char *scr, char *del)
 	if (!del)
 		del = " ";
 	for (i = 0; scr[i] != '\0'; i++)
-		if(!_strdelimeter(scr[i], del) &&
+		if (!_strdelimeter(scr[i], del) &&
 				(_strdelimeter(scr[i + 1], del)
 				 || !scr[i + 1]))
 			nemberwords++;
@@ -63,7 +63,7 @@ char **_strwords2(char *scr, char del)
 	if (scr == NULL || scr[0] == 0)
 		return (NULL);
 	for (i = 0; scr[i] != '\0'; i++)
-		if((scr[i] != del && scr[i + 1] == del) ||
+		if ((scr[i] != del && scr[i + 1] == del) ||
 				(scr[i] != del && !scr[i + 1])
 				|| scr[i + 1] == del)
 			nemberwords++;
