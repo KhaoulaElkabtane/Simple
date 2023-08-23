@@ -3,7 +3,7 @@
 /**
  * free_info - initializes info_t struct
  * @info : struct address
- * 
+ *
  * Return: Nothing
  */
 void free_info(info_t *info)
@@ -16,8 +16,9 @@ void free_info(info_t *info)
 
 
 /**
- * _setinis - initializes info_t struct
- * @info : struct address
+ * _setinis - Set initial information in the info_t struct.
+ * @info: Pointer to the info_t struct to store information.
+ * @ar: Array of strings containing command-line arguments.
  *
  * Return: Nothing
  */
@@ -59,7 +60,7 @@ void lib_info(info_t *info, int var)
 	_free(info->argv);
 	info->argv = NULL;
 	info->path = NULL;
-	if(var)
+	if (var)
 	{
 		if (!info->cmd_buf)
 			free(info->arg);
