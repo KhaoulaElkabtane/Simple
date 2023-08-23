@@ -5,7 +5,7 @@
  * @add: address pointer
  * @str: string filed of node
  * @n: node index
- * Reuturn: size of list
+ * Return: size of list
  */
 list_t *_node(list_t **add, const char *str, int n)
 {
