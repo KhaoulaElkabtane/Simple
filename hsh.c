@@ -127,7 +127,7 @@ void fcmd(info_t *info)
 
 /**
  * fbuil - finds builtin cmd
- * @info strct
+ * @info : strct
  *
  * Return: variable ret
  */
