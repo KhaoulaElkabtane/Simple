@@ -19,19 +19,19 @@ char **_environ(info_t *info)
  * rem_envirenement - remove an envirenement
  * @info: structure containnig potentiel
  * @str: string
- * Return : 1 if true or 0 if false
+ * Return: 1 if true or 0 if false
 */
-int rem_envirenement(info_t *info, char *v)
+int rem_envirenement(info_t *info, char *str)
 {
 	list_t *n = info->env;
 	char *p;
 	size_t i;
 
-	if (!n || !v)
+	if (!n || !str)
 		return (0);
 	while (n)
 	{
-		p = startWith(n->str, v);
+		p = startWith(n->str, str);
 		if (p && *p == '=')
 		{
 			info->env_changed = node_index(&(info->env), 1);
@@ -52,23 +52,23 @@ int rem_envirenement(info_t *info, char *v)
  * @var: envirenement value
  * Return: Always 0
 */
-int new_env(info_t *info, char *st, char *var)
+int new_env(info_t *info, char *str, char *var)
 {
 	char *buffer;
 	list_t *nd;
 	char *d;
 
-	if (!st || !var)
+	if (!str || !var)
 		return (0);
-	buffer = malloc(_strlength(st) + _strlength(var) + 2);
+	buffer = malloc(_strlength(str) + _strlength(var) + 2);
 	if (!buffer)
 		return (0);
-	_strcomparison(buffer, st);
+	_strcomparison(buffer, str);
 	str_cat(buffer, "=");
 	str_cat(buffer, var);
 	while (nd)
 	{
-		d = startWith(nd->str, st);
+		d = startWith(nd->str, str);
 		if (d && *d == '=')
 		{
 			nd->str = buffer;
