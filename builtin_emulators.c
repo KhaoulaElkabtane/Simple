@@ -39,9 +39,7 @@ int cd_directory(info_t *info)
 
 	str = getcwd(buffer, 1024);
 	if (!str)
-	{
 		_strputs("TODO: >>getcwd failure emsg here<<\n");
-	}
 	if (!info->argv[1])
 	{
 		dir = get_envirenement(info, "Home=");
