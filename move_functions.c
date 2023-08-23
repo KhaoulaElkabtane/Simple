@@ -39,8 +39,8 @@ int _alphabetic(int s)
 
 /**
  * _strconvert - converts a string to an integer
- * @c : variable to be converted
- * Return : 0 if no numbers converted
+ * @c: variable to be converted
+ * Return: 0 if no numbers converted
  */
 int _strconvert(char *c)
 {
