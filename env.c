@@ -70,8 +70,8 @@ int remove_envirenement(info_t *info)
 
 /**
  * penv_list - populates env list
- * @info : structure containnig potentiel
- * Return : Always 0
+ * @info: structure containnig potentiel
+ * Return: Always 0
 */
 int penv_list(info_t *info)
 {
