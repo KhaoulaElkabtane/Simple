@@ -13,7 +13,7 @@ char *_strcopy(char *ds, char *sre)
 
 	if (ds == sre || sre == 0)
 		return (ds);
-	ds=(char *)malloc(sizeof(char)*_strlength(sre));
+	ds = (char *)malloc(sizeof(char) * _strlength(sre));
 	while (sre[i])
 	{
 		ds[i] = sre[i];
@@ -35,16 +35,16 @@ char *_strduplication(const char *dpl)
 	int lgh;
 	char *str;
 
-	if(!dpl)
+	if (!dpl)
 		return (NULL);
 	while (*dpl++)
 		lgh++;
 	str = malloc(sizeof(char) * (lgh + 1));
-	if(!str)
+	if (!str)
 		return (NULL);
-	for(lgh++; lgh--;)
+	for (lgh++; lgh--;)
 		str[lgh] = *--dpl;
-	return(str);
+	return (str);
 }
 
 
@@ -57,10 +57,10 @@ char *_strduplication(const char *dpl)
 void _strputs(char *put)
 {
 	int i;
-	
-	if(!put)
+
+	if (!put)
 		return;
-	while(put[i] != '\0')
+	while (put[i] != '\0')
 	{
 		_putchar(put[i]);
 		i++;
@@ -69,7 +69,7 @@ void _strputs(char *put)
 
 
 /**
- * _putchar - writes the character d to stdout 
+ * _putchar - writes the character d to stdout
  * @d : the character to print
  *
  * Return : on success 1
@@ -87,5 +87,5 @@ int _putchar(char d)
 	}
 	if (d != BUF_FLUSH)
 		buffer[i++] = d;
-	return )
+	return (i);
 }
