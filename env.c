@@ -39,7 +39,7 @@ char *get_envirenement(info_t *info, const char *var)
  */
 int new_envirenement(info_t *info)
 {
-	if (info->argc !=3)
+	if (info->argc != 3)
 	{
 		er_puts("Incorrect number of arguments\n");
 		return (1);
@@ -78,7 +78,7 @@ int penv_list(info_t *info)
 	list_t *n = NULL;
 	size_t i;
 
-	for(i = 0; environ[i]; i++)
+	for (i = 0; environ[i]; i++)
 		_nend(&n, environ[i], 0);
 	info->env = n;
 	return (0);
