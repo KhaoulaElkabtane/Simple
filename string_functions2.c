@@ -5,7 +5,7 @@
  * @ds : destination
  * @sre : source
  *
- * Return : distination
+ * Return: char*
  */
 char *_strcopy(char *ds, char *sre)
 {
@@ -28,7 +28,7 @@ char *_strcopy(char *ds, char *sre)
  * _strduplication - duplicates a string
  * @dpl : variable to duplicate
  *
- * Return: pointer duplicated
+ * Return: pointer
  */
 char *_strduplication(const char *dpl)
 {
@@ -52,7 +52,7 @@ char *_strduplication(const char *dpl)
  * _strputs - input string
  * @put : printed
  *
- * Return : nothing
+ * Return: nothing
  */
 void _strputs(char *put)
 {
@@ -72,7 +72,7 @@ void _strputs(char *put)
  * _putchar - writes the character d to stdout
  * @d : the character to print
  *
- * Return : on success 1
+ * Return: on success 1
  *          On error, -1 is returned, and errno is set appropriately
  */
 int _putchar(char d)
