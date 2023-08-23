@@ -17,19 +17,18 @@ char *startWith(const char *str, const char *c)
 }
 
 /**
- * strcat - concatenates two strings
+ * str_cat - concatenates two strings
  * @tes: destbuffer
  * @cr: sourbuffer
  * Return: pointer buffer
  */
-
 char *str_cat(char *tes, char *cr)
 {
-	int i=0, j=0;
+	int i = 0, j = 0;
 	char *dest;
 
-	dest = (char *)malloc(sizeof(char)*(_strlength(tes) +
-				_strlength(cr)+1));
+	dest = (char *)malloc(sizeof(char) * (_strlength(tes) +
+				_strlength(cr) + 1));
 
 	while (tes[i] != '\0')
 	{
@@ -44,7 +43,7 @@ char *str_cat(char *tes, char *cr)
 		i++;
 		j++;
 	}
-	dest[j]='\0';
+	dest[j] = '\0';
 	return (dest);
 }
 
