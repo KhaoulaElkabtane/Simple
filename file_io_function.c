@@ -23,11 +23,12 @@ char *history_file(info_t *info)
 	return (buffer);
 }
 
+
 /**
- * creat_history : write a file
- * @info : struct
+ * creat_history - Create or overwrite a history file with command history.
+ * @info: Pointer to the info_t struct containing history and file data.
  *
- * Return: 1 if true or 0 if false
+ * Return: 1 on success, -1 on failure.
  */
 int creat_history(info_t *info)
 {
@@ -35,7 +36,7 @@ int creat_history(info_t *info)
 	char *f_name = history_file(info);
 	list_t *nd = NULL;
 
-	if(!f_name)
+	if (!f_name)
 		return (-1);
 	file = open(f_name, O_CREAT | O_TRUNC | O_RDWR, 0644);
 	free(f_name);
@@ -91,7 +92,7 @@ int rhistory(info_t *info)
 			lt = i + 1;
 		}
 	}
-	if(lt != i)
+	if (lt != i)
 		history_list(info, buffer + lt, count++);
 	free(buffer);
 	info->histcount = count;
@@ -105,7 +106,7 @@ int rhistory(info_t *info)
  * history_list - build entry to history list
  * @info : struct
  * @buffer : buffer
- * @count : the history linecount
+ * @coun : the history linecount
  *
  * Return: always 0
  */
