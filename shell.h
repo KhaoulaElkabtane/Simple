@@ -18,21 +18,21 @@
 #define BUF_FLUSH -1
 
 /* for comand chaining */
-#define CMD_NORM   0
-#define CMD_OR     1
-#define CMD_AND    2
-#define CMD_CHAIN  3
+#define CMD_NORM 0
+#define CMD_OR 1
+#define CMD_AND 2
+#define CMD_CHAIN 3
 
 /* for convert_number () */
-#define CONVERT_LOWERCASE    1
-#define CONVERT_UNSIGNED    2
+#define CONVERT_LOWERCASE 1
+#define CONVERT_UNSIGNED 2
 
 /* 1 if using system getline () */
 #define USE_GETLINE 0
 #define USE_STRTOK 0
 
-#define HIST_FILE   ".simple_shell_history"
-#define HIST_MAX    4096
+#define HIST_FILE ".simple_shell_history"
+#define HIST_MAX 4096
 
 extern char **environ;
 
@@ -44,9 +44,9 @@ extern char **environ;
  */
 typedef struct liststr
 {
-	int num;
-	char  *str;
-	struct liststr *next;
+        int num;
+        char  *str;
+        struct liststr *next;
 } list_t;
 
 /**
@@ -55,7 +55,7 @@ typedef struct liststr
  * @argv: an array of strings generated from arg
  * @path: a string path for the current command
  * @argc: the argument count
- * @line : count: the error count
+ * @line_count: the error count
  * @err_num: the error code for exit ()s
  * @linecount_flag: if on count this line of input
  * @fname: the program filename
@@ -72,24 +72,24 @@ typedef struct liststr
  */
 typedef struct passinfo
 {
-	char *arg;
-	char **argv;
-	char *path;
-	int argc;
-	unsigned int line_count;
-	int err_num;
-	int linecount_flag;
-	char *fname;
-	list_t *env;
-	list_t *history;
-	list_t *alias;
-	char **environ;
-	int env_changed;
-	int status ;
-	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
-	int cmd_buf_type; /* CMD type ||, &&, ; */
-	int readfd;
-	int histcount;
+        char *arg;
+        char **argv;
+        char *path;
+        int argc;
+        unsigned int line_count;
+        int err_num;
+        int linecount_flag;
+        char *fname;
+        list_t *env;
+        list_t *history;
+        list_t *alias;
+        char **environ;
+        int env_changed;
+        int status ;
+        char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
+        int cmd_buf_type; /* CMD type ||, &&, ; */
+        int readfd;
+        int histcount;
 } info_t;
 
 #define INFO_INIT \
@@ -102,8 +102,8 @@ typedef struct passinfo
  */
 typedef struct builtin
 {
-	char *type;
-	int (*func)(info_t *);
+        char *type;
+        int (*func)(info_t *);
 } builtin_table;
 
 /* hsh.c */
@@ -138,7 +138,7 @@ char *_strduplication(const char *);
 void _strputs(char *);
 int _putchar(char);
 
-/* string_functions3 .c */
+/* string_functions3.c */
 char *_strcopy2(char *, char *, int);
 char *_strconcatenate(char *, char *, int);
 char *_strcharacter(char *, char);
@@ -201,7 +201,6 @@ char **_environ(info_t *);
 int rem_envirenement(info_t *, char *);
 int new_env(info_t *, char *, char *);
 
-
 /* file_io_function.c */
 char *history_file(info_t *info);
 int creat_history(info_t *info);
@@ -231,3 +230,4 @@ int var_replacing(info_t *);
 int str_replacing(char **, char *);
 
 #endif
+
