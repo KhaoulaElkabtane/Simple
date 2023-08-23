@@ -7,7 +7,7 @@
 */
 char **_environ(info_t *info)
 {
-	if(!info->environ || info->env_changed)
+	if (!info->environ || info->env_changed)
 	{
 		info->environ = list_string(info->env);
 		info->env_changed = 0;
