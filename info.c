@@ -52,7 +52,7 @@ void _setinis(info_t *info, char **ar)
  * lib_info - free info struct field
  * @info : struct address
  * @var : freeing fields
- * 
+ *
  * Return: nothing
  */
 void lib_info(info_t *info, int var)
