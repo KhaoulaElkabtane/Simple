@@ -11,7 +11,7 @@ int shell_loop(info_t *info, char **arg)
 {
 	ssize_t i = 0;
 	int ret = 0;
-	
+
 	while (i != -1 && ret != -2)
 	{
 		free_info(info);
@@ -78,7 +78,9 @@ void path_command(info_t *info)
 	}
 	else
 	{
-		if ((_reactive(info) || get_envirenement(info, "PATH=") || info->argv[0][0] == '/') && fnct_cmd(info, info->argv[0]))
+		if ((_reactive(info) || get_envirenement(info, "PATH=") ||
+					info->argv[0][0] == '/') &&
+				fnct_cmd(info, info->argv[0]))
 			fcmd(info);
 		else if (*(info->arg) != '\n')
 		{
@@ -152,5 +154,5 @@ int fbuil(info_t *info)
 			break;
 		}
 	}
-	return(ret);
+	return (ret);
 }
