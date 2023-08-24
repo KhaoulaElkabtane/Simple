@@ -121,42 +121,42 @@ char *creat_path(info_t *, char *, char *);
 /* loophsh.c */
 int loophsh(char **);
 
-/* err_string_functions.c */
+/* error_string.c */
 void er_puts(char *);
 int erputchar(char);
 int _puts(char *str, int file);
 int _putwrit(char ch, int file);
 
-/* string_functions.c */
+/* string_fct.c */
 int _strlength(char *);
 int _strcomparison(char *, char *);
 char *startWith(const char *, const char *);
 char *str_cat(char *, char *);
 
-/* string_functions2.c */
+/* string_fct2.c */
 char *_strcopy(char *, char *);
 char *_strduplication(const char *);
 void _strputs(char *);
 int _putchar(char);
 
-/* string_functions3.c */
+/* string_fct3.c */
 char *_strcopy2(char *, char *, int);
 char *_strconcatenate(char *, char *, int);
 char *_strcharacter(char *, char);
 
-/* string_functions4 .c */
+/* string_fct4 .c */
 char **_strwords(char *, char *);
 char **_strwords2(char *, char);
 
-/* memory_functions */
+/* memory */
 char *_memoryfle(char *, char, unsigned int);
 void _free(char **);
 void *_malloc(void *, unsigned int, unsigned int);
 
-/* memory_functions2.c */
+/* memory2.c */
 int _freemalloc(void **);
 
-/* more_funcions.c */
+/* move_funcions.c */
 int _reactive(info_t *);
 int _strdelimeter(char, char *);
 int _alphabetic(int);
@@ -179,7 +179,7 @@ int cmd_history(info_t *);
 int remove_alias(info_t *, char *);
 int _alias(info_t *);
 
-/* getline.c */
+/* lines.c */
 ssize_t put_buffer(info_t *, char **, size_t *);
 int next_line(info_t *, char **, size_t *);
 void fnct_handler(int);
@@ -190,40 +190,40 @@ void free_info(info_t *);
 void _setinis(info_t *, char **);
 void lib_info(info_t *, int);
 
-/* env.c */
+/* envirenement.c */
 char *get_envirenement(info_t *, const char *);
 int _envirenement(info_t *);
 int new_envirenement(info_t *);
 int remove_envirenement(info_t *);
 int penv_list(info_t *);
 
-/* env2.c */
+/* envirenement2.c */
 char **_environ(info_t *);
 int rem_envirenement(info_t *, char *);
 int new_env(info_t *, char *, char *);
 
-/* file_io_function.c */
+/* fio_funct.c */
 char *history_file(info_t *info);
 int creat_history(info_t *info);
 int rhistory(info_t *info);
 int history_list(info_t *info, char *buffer, int coun);
 int num_history(info_t *info);
 
-/* liststr.c */
+/* list_string.c */
 list_t *_node(list_t **, const char *, int);
 list_t *_nend(list_t **, const char *, int);
 size_t list_str(const list_t *);
 int node_index(list_t **, unsigned int);
 void l_free(list_t **);
 
-/* liststr2.c */
+/* list_string2.c */
 size_t l_length(const list_t *);
 char **list_string(list_t *);
 size_t _list(const list_t *);
 list_t *_nstart(list_t *, char *, char);
 size_t gnode(list_t *, list_t *);
 
-/* chain.c */
+/* str.c */
 int my_chain(info_t *, char *, size_t *);
 void chain_ck(info_t *, char *, size_t *, size_t, size_t);
 int _realias(info_t *);

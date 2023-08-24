@@ -22,7 +22,7 @@ int _getline(info_t *info, char **pointer, size_t *len)
 		sts = *len;
 	if (i == gh)
 		i = gh = 0;
-	str = read_buffer(info, buffer, &gh);
+	str = readbuffer(info, buffer, &gh);
 	if (str == -1 || (str == 0 && gh == 0))
 		return (-1);
 	s = _strcharacter(buffer + 1, '\n');
