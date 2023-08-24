@@ -72,7 +72,7 @@ char **strToWords2(char *s, char del)
 		return (NULL);
 	for (i = 0, j = 0; j < nbr; j++)
 	{
-		while (s[i] == d && s[i] != del)
+		while (s[i] == del && s[i] != del)
 			i++;
 		k = 0;
 		while (s[i + k] != del && s[i + k] && s[i + k] != del)

@@ -32,13 +32,13 @@ int fctCmd(infocmd *in, char *p)
  */
 char *fctduplicate(char *str, int tart, int top)
 {
-	static char buffur[1024];
+	static char buffer[1024];
 	int i = 0, j = 0;
 
 	for (j = 0, i = tart; i < top; i++)
 		if (str[i] != ':')
 			buffer[j++] = str[i];
-	buffer[k] = 0;
+	buffer[j] = 0;
 	return (buffer);
 }
 

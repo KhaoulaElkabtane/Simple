@@ -6,7 +6,7 @@
  *
  *  Return: Always 0
  */
-int printHistory(info *info)
+int printHistory(infocmd *info)
 {
 	printList(info->history);
 	return (0);
@@ -52,7 +52,7 @@ int setAlias(infocmd *info, char *s)
 	if (!*++p)
 		return (unsetAlias(info, s));
 
-	unset_alias(info, s);
+	unsetAlias(info, s);
 	return (addEndNode(&(info->alias), s, 0) == NULL);
 }
 
@@ -66,7 +66,7 @@ int printAlias(liststr *n)
 {
 	char *pt = NULL, *a = NULL;
 
-	if (node)
+	if (n)
 	{
 		pt = strFindchar(n->s, '=');
 		for (a = n->s; a <= pt; a++)

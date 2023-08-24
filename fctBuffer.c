@@ -31,8 +31,8 @@ ssize_t inputBuffer(infocmd *info, char **buffer, size_t *l)
 				r--;
 			}
 			info->linecount_flag = 1;
-			remove_comments(*buf);
-			build_history_list(info, *buffer, info->histcount++);
+			fctremove(*buffer);
+			buildHistoList(info, *buffer, info->histcount++);
 			*l = r;
 			info->cmd_buf = buffer;
 		}
@@ -62,10 +62,10 @@ ssize_t extractInput(infocmd *info)
 		j = i;
 		p = b + i;
 
-		check_chain(info, b, &j, i, l);
-		while (j < len)
+		fctcheck(info, b, &j, i, l);
+		while (j < l)
 		{
-			if (is_chain(info, b, &j))
+			if (fctchain(info, b, &j))
 				break;
 			j++;
 		}
@@ -131,7 +131,7 @@ int _getline(infocmd *info, char **ptr, size_t *length)
 	if (r == -1 || (r == 0 && len == 0))
 		return (-1);
 
-	c = _strchr(buf + i, '\n');
+	c = strFindchar(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
 	new_p = reallocMem(p, s, s ? s + k : k + 1);
 	if (!new_p)
@@ -160,7 +160,7 @@ int _getline(infocmd *info, char **ptr, size_t *length)
  */
 void sigintHandler(__attribute__((unused))int sig_num)
 {
-	_puts("\n");
-	_puts("$ ");
+	strputs("\n");
+	strputs("$ ");
 	_putchar(BUF_FLUSH);
 }

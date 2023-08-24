@@ -18,7 +18,7 @@ int fctexit(infocmd *in)
 			in->status = 2;
 			erprint(in, "Illegal number: ");
 			erputs(in->argv[1]);
-			_eputchar('\n');
+			eputchar('\n');
 			return (1);
 		}
 		in->err_num = erprint(in->argv[1]);

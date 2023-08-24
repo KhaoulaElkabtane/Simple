@@ -209,7 +209,7 @@ char *historyfile(infocmd *info);
 int creathistory(infocmd *info);
 int readhistory(infocmd *info);
 int buildHistoList(infocmd *info, char *buf, int linecount);
-int renumistory(infocmd *info);
+int renumHistory(infocmd *info);
 
 /* lists.c */
 liststr *addToNode(liststr **, const char *, int);

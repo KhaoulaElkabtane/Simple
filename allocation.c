@@ -55,7 +55,7 @@ void *reallocMem(void *ptr, unsigned int sizeOld, unsigned int sizeNew)
 		return (NULL);
 
 	sizeOld = sizeOld < sizeNew ? sizeOld : sizeNew;
-	while (old_size--)
+	while (sizeOld--)
 		p[sizeOld] = ((char *)ptr)[sizeOld];
 	free(ptr);
 	return (p);

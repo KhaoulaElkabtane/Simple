@@ -10,7 +10,7 @@ char **getEnv(infocmd *info)
 {
 	if (!info->environ || info->env_changed)
 	{
-		info->environ = listStrings(info->env);
+		info->environ = listString(info->env);
 		info->env_changed = 0;
 	}
 

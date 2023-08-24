@@ -61,7 +61,7 @@ int fctDecimal(int put, int file)
 
 	if (file == STDERR_FILENO)
 		__putchar = eputchar;
-	if (input < 0)
+	if (put < 0)
 	{
 		_abs_ = -put;
 		__putchar('-');

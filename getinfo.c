@@ -31,7 +31,7 @@ void setInfo(infocmd *info, char **a)
 			info->argv = malloc(sizeof(char *) * 2);
 			if (info->argv)
 			{
-				info->argv[0] = strduplication(info->arg);
+				info->argv[0] = strduplicate(info->arg);
 				info->argv[1] = NULL;
 			}
 		}

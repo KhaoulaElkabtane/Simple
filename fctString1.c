@@ -41,7 +41,7 @@ char *strduplicate(const char *st)
 	if (!r)
 		return (NULL);
 	for (lg++; lg--;)
-		ret[lg] = *--st;
+		r[lg] = *--st;
 	return (r);
 }
 

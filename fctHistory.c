@@ -115,7 +115,7 @@ int buildHistoList(infocmd *in, char *buffer, int lcount)
 	liststr *str = NULL;
 
 	if (in->history)
-		str = info->history;
+		str = in->history;
 	addEndNode(&str, buffer, lcount);
 
 	if (!in->history)

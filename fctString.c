@@ -10,7 +10,7 @@ int strlength(char *str)
 {
 	int i = 0;
 
-	if (!s)
+	if (!str)
 		return (0);
 
 	while (*str++)
@@ -70,6 +70,6 @@ char *strCat(char *d, char *s)
 		d++;
 	while (*s)
 		*d++ = *s++;
-	*dest = *s;
+	*d = *s;
 	return (res);
 }

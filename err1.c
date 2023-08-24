@@ -14,7 +14,7 @@ void erputs(char *s)
 		return;
 	while (s[i] != '\0')
 	{
-		erputchar(s[i]);
+		eputchar(s[i]);
 		i++;
 	}
 }
@@ -58,7 +58,7 @@ int putfile(char str, int file)
 		i = 0;
 	}
 	if (str != BUF_FLUSH)
-		buffer[i++] = c;
+		buffer[i++] = str;
 	return (1);
 }
 
