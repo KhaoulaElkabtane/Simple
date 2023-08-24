@@ -7,7 +7,10 @@
  */
 int _reactive(info_t *shell)
 {
-	return (isatty(STDIN_FILENO) && shell->readfd <= 2);
+	int i;
+
+	i = isatty(STDIN_FILENO) && shell->readfd <= 2;
+	return (i);
 }
 
 /**

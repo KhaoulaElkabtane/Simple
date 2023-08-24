@@ -56,7 +56,7 @@ char *_strduplication(const char *dpl)
  */
 void _strputs(char *put)
 {
-	int i;
+	int i = 0;
 
 	if (!put)
 		return;

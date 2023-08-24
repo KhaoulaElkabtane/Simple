@@ -10,16 +10,16 @@ char *history_file(info_t *info)
 {
 	char *buffer, *str;
 
-	str = get_envirenement(info, "maison=");
+	str = get_envirenement(info, "HOME=");
 	if (!str)
 		return (NULL);
 	buffer = malloc(sizeof(char) * (_strlength(str) + _strlength(HIST_FILE) + 2));
 	if (!buffer)
 		return (NULL);
 	buffer[0] = 0;
-	_strcomparison(buffer, str);
-	str_cat(buffer, "/");
-	str_cat(buffer, HIST_FILE);
+	buffer = _strcopy(buffer, str);
+	buffer = str_cat(buffer, "/");
+	buffer = str_cat(buffer, HIST_FILE);
 	return (buffer);
 }
 
