@@ -82,15 +82,15 @@ typedef struct info
 	int err_num;
 	int linecount_flag;
 	char *fname;
-	list_t *env;
-	list_t *history;
-	list_t *alias;
+	liststr *env;
+	liststr *history;
+	liststr *alias;
 	char **environ;
 	int env_changed;
 	int status;
 
-	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
-	int cmd_buf_type; /* CMD_type ||, &&, ; */
+	char **cmd_buf;
+	int cmd_buf_type;
 	int readfd;
 	int histcount;
 } infocmd;
@@ -108,128 +108,128 @@ typedef struct builtin
 {
 	char *type;
 	int (*func)(infocmd *);
-} builtin_t;
+} builtin_table;
 
 
 /* shellLoop.c */
-int hsh(info_t *, char **);
-int find_builtin(info_t *);
-void find_cmd(info_t *);
-void fork_cmd(info_t *);
+int shellLoop(infocmd *, char **);
+int findbuil(infocmd *);
+void pathCmd(infocmd *);
+void forkCmd(infocmd *);
 
 /* fctString2.c */
-int is_cmd(info_t *, char *);
+int is_cmd(infocmd *, char *);
 char *dup_chars(char *, int, int);
-char *find_path(info_t *, char *, char *);
+char *find_path(infocmd *, char *, char *);
 
 /* loophsh.c */
 int loophsh(char **);
 
-/* errors.c */
-void _eputs(char *);
-int _eputchar(char);
-int _putfd(char c, int fd);
-int _putsfd(char *str, int fd);
+/* err1.c */
+void erputs(char *);
+int eputchar(char);
+int putfile(char c, int fd);
+int putsfile2(char *str, int fd);
 
 /* fctString.c */
-int _strlen(char *);
-int _strcmp(char *, char *);
-char *starts_with(const char *, const char *);
-char *_strcat(char *, char *);
+int strlength(char *);
+int strcomparison(char *, char *);
+char *startsWith(const char *, const char *);
+char *strCat(char *, char *);
 
 /* fctString1.c */
-char *_strcpy(char *, char *);
-char *_strdup(const char *);
-void _puts(char *);
+char *strcopy(char *, char *);
+char *strduplicate(const char *);
+void strputs(char *);
 int _putchar(char);
 
 /* exits.c */
-char *_strncpy(char *, char *, int);
-char *_strncat(char *, char *, int);
-char *_strchr(char *, char);
+char *strNcopy(char *, char *, int);
+char *strNcat(char *, char *, int);
+char *strFindchar(char *, char);
 
 /* fctString3.c */
-char **strtow(char *, char *);
-char **strtow2(char *, char);
+char **strToWords(char *, char *);
+char **strToWords2(char *, char);
 
 /* allocation.c */
-char *_memset(char *, char, unsigned int);
-void ffree(char **);
-void *_realloc(void *, unsigned int, unsigned int);
+char *setMem(char *, char, unsigned int);
+void strfree(char **);
+void *reallocMem(void *, unsigned int, unsigned int);
 
 /* mem.c */
-int bfree(void **);
+int freemem(void **);
 
 /* fctString4.c */
-int interactive(info_t *);
-int is_delim(char, char *);
-int _isalpha(int);
-int _atoi(char *);
+int fctactive(infocmd *);
+int fctDelim(char, char *);
+int fctAlphabetic(int);
+int fctConv(char *);
 
 /* err2.c */
-int _erratoi(char *);
-void print_error(info_t *, char *);
-int print_d(int, int);
-char *convert_number(long int, int, int);
-void remove_comments(char *);
+int erconv(char *);
+void erprint(infocmd *, char *);
+int fctDecimal(int, int);
+char *convertnumber(long int, int, int);
+void fctremove(char *);
 
 /* builtin.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
+int fctexit(infocmd *);
+int fctcurrent(infocmd *);
+int fcthelp(infocmd *);
 
 /* builtin1.c */
-int _myhistory(info_t *);
-int _myalias(info_t *);
+int printHistory(infocmd *);
+int manAlias(infocmd *);
 
 /* fctBuffer.c */
-ssize_t get_input(info_t *);
-int _getline(info_t *, char **, size_t *);
+ssize_t extractInput(infocmd *);
+int _getline(infocmd *, char **, size_t *);
 void sigintHandler(int);
 
 /* getinfo.c */
-void clear_info(info_t *);
-void set_info(info_t *, char **);
-void free_info(info_t *, int);
+void unsetInfo(infocmd *);
+void setInfo(infocmd *, char **);
+void libInfo(infocmd *, int);
 
 /* env.c */
-char *_getenv(info_t *, const char *);
-int _myenv(info_t *);
-int _mysetenv(info_t *);
-int _myunsetenv(info_t *);
-int populate_env_list(info_t *);
+char *getVarEnv(infocmd *, const char *);
+int curEnv(infocmd *);
+int setEnvVal(infocmd *);
+int unsetEnvVal(infocmd *);
+int initEnvList(infocmd *);
 
 /* getenv.c */
-char **get_environ(info_t *);
-int _unsetenv(info_t *, char *);
-int _setenv(info_t *, char *, char *);
+char **getEnv(infocmd *);
+int unsetEnv(infocmd *, char *);
+int setEnv(infocmd *, char *, char *);
 
 /* fctHistory.c */
-char *get_history_file(info_t *info);
-int write_history(info_t *info);
-int read_history(info_t *info);
-int build_history_list(info_t *info, char *buf, int linecount);
-int renumber_history(info_t *info);
+char *historyfile(infocmd *info);
+int creathistory(infocmd *info);
+int readhistory(infocmd *info);
+int buildHistoList(infocmd *info, char *buf, int linecount);
+int renumistory(infocmd *info);
 
 /* lists.c */
-list_t *add_node(list_t **, const char *, int);
-list_t *add_node_end(list_t **, const char *, int);
-size_t print_list_str(const list_t *);
-int delete_node_at_index(list_t **, unsigned int);
-void free_list(list_t **);
+liststr *addToNode(liststr **, const char *, int);
+liststr *addEndNode(liststr **, const char *, int);
+size_t printList(const liststr *);
+int delNodeIndex(liststr **, unsigned int);
+void freeList(liststr **);
 
 /* lists1.c */
-size_t list_len(const list_t *);
-char **list_to_strings(list_t *);
-size_t print_list(const list_t *);
-list_t *node_starts_with(list_t *, char *, char);
-ssize_t get_node_index(list_t *, list_t *);
+size_t listlength(const liststr *);
+char **listString(liststr *);
+size_t fctlist(const liststr *);
+liststr *nodeStart(liststr *, char *, char);
+ssize_t nodeIndex(liststr *, liststr *);
 
 /* vars.c */
-int is_chain(info_t *, char *, size_t *);
-void check_chain(info_t *, char *, size_t *, size_t, size_t);
-int replace_alias(info_t *);
-int replace_vars(info_t *);
-int replace_string(char **, char *);
+int fctchain(infocmd *, char *, size_t *);
+void fctcheck(infocmd *, char *, size_t *, size_t, size_t);
+int repAlias(infocmd *);
+int repVars(infocmd *);
+int replString(char **, char *);
 
 #endif

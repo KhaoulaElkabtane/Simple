@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _myenv - prints the environment
+ * curEnv - prints the environment
  * @info: Struct containing potential arguments
  *
  * Return: Always 0
@@ -53,10 +53,9 @@ int setEnvVal(infocmd *i)
 }
 
 /**
- * _myunsetenv - Remove an environment variable
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
- *  Return: Always 0
+ * unsetEnvVal - unset env variable
+ * @info: Structure containing arguments
+ *  Return: 0 if ok 1 if fails
  */
 int unsetEnvVal(infocmd *info)
 {
