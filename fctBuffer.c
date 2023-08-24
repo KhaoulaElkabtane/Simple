@@ -138,9 +138,9 @@ int _getline(infocmd *info, char **ptr, size_t *length)
 		return (p ? free(p), -1 : -1);
 
 	if (s)
-		_strncat(new_p, buf + i, k - i);
+		strNcat(new_p, buf + i, k - i);
 	else
-		_strncpy(new_p, buf + i, k - i + 1);
+		strNcopy(new_p, buf + i, k - i + 1);
 
 	s += k - i;
 	i = k;
