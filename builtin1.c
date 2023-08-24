@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * printhistory - displays the history list
- * @info: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
+ * printhistory - print history list
+ * @info: Structure containing arguments.
+ *
  *  Return: Always 0
  */
 int printHistory(info *info)
@@ -13,11 +13,11 @@ int printHistory(info *info)
 }
 
 /**
- * unsetAlias - sets alias to string
- * @info: parameter struct
- * @str: the string alias
+ * unsetAlias - uset alias
+ * @info: struct infocmd
+ * @str: alias string
  *
- * Return: Always 0 on success, 1 on error
+ * Return: 0 if ok, 1 if fails
  */
 int unsetAlias(infocmd *info, char *s)
 {
@@ -36,11 +36,11 @@ int unsetAlias(infocmd *info, char *s)
 }
 
 /**
- * setAlias - sets alias to string
- * @info: parameter struct
- * @s: the string alias
+ * setAlias - set alias
+ * @info: struct info cmd
+ * @s: alias string
  *
- * Return: Always 0 on success, 1 on error
+ * Return: 0 if ok, 1 if fails
  */
 int setAlias(infocmd *info, char *s)
 {
@@ -57,10 +57,10 @@ int setAlias(infocmd *info, char *s)
 }
 
 /**
- * print_alias - prints an alias string
- * @node: the alias node
+ * printAlias - prints an alias string
+ * @n: alias node
  *
- * Return: Always 0 on success, 1 on error
+ * Return: 0 if ok, 1 if fails
  */
 int printAlias(liststr *n)
 {
@@ -80,9 +80,9 @@ int printAlias(liststr *n)
 }
 
 /**
- * manAlias - mimics the alias builtin (man alias)
- * @info: Structure containing potential arguments. Used to maintain
- *          constant function prototype.
+ * manAlias - man alias
+ * @info: Structure containing arguments.
+ *
  *  Return: Always 0
  */
 int manAlias(infocmd *info)
