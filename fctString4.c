@@ -1,75 +1,78 @@
 #include "shell.h"
 
 /**
- * interactive - returns true if shell is interactive mode
- * @info: struct address
+ * fctActive - Check if the shell is running in an active mode.
+ * @in: Pointer to infocmd struct.
  *
- * Return: 1 if interactive mode, 0 otherwise
+  * Return: 1 if active, else 0.
  */
-int interactive(info_t *info)
+int fctActive(infocmd *in)
 {
-	return (isatty(STDIN_FILENO) && info->readfd <= 2);
+	return (isatty(STDIN_FILENO) && in->readfd <= 2);
 }
 
 /**
- * is_delim - checks if character is a delimeter
- * @c: the char to check
- * @delim: the delimeter string
- * Return: 1 if true, 0 if false
+ * fctDelim - Check if a character is a delimiter.
+ * @str: Character to be checked.
+ * @del: String of delimiters to compare against.
+ *
+ * Return: 1 if 'str' is a delimiter, else 0.
  */
-int is_delim(char c, char *delim)
+int fctDelim(char str, char *del)
 {
-	while (*delim)
-		if (*delim++ == c)
+	while (*del)
+		if (*del++ == str)
 			return (1);
 	return (0);
 }
 
 /**
- *_isalpha - checks for alphabetic character
- *@c: The character to input
- *Return: 1 if c is alphabetic, 0 otherwise
+ * fctAlphabetic - Check if a value represents an alphabetic character.
+ * @alp: Value to be checked.
+ *
+ * Return: 1 if 'alp' is alphabetic, else 0.
  */
 
-int _isalpha(int c)
+int fctAlphabetic(int alp)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if ((alp >= 'a' && alp <= 'z') || (alp >= 'A' && alp <= 'Z'))
 		return (1);
 	else
 		return (0);
 }
 
 /**
- *_atoi - converts a string to an integer
- *@s: the string to be converted
- *Return: 0 if no numbers in string, converted number otherwise
+ * fctConv - Convert a string to an integer.
+ * @str: Pointer to the input string.
+ *
+ * Return: The converted integer value.
  */
 
-int _atoi(char *s)
+int fctConv(char *str)
 {
-	int i, sign = 1, flag = 0, output;
-	unsigned int result = 0;
+	int i, sg = 1, fl = 0, put;
+	unsigned int res = 0;
 
-	for (i = 0;  s[i] != '\0' && flag != 2; i++)
+	for (i = 0;  str[i] != '\0' && fl != 2; i++)
 	{
-		if (s[i] == '-')
-			sign *= -1;
+		if (str[i] == '-')
+			sg *= -1;
 
-		if (s[i] >= '0' && s[i] <= '9')
+		if (str[i] >= '0' && str[i] <= '9')
 		{
-			flag = 1;
-			result *= 10;
-			result += (s[i] - '0');
+			fl = 1;
+			res *= 10;
+			res += (s[i] - '0');
 		}
-		else if (flag == 1)
-			flag = 2;
+		else if (fl == 1)
+			fl = 2;
 	}
 
-	if (sign == -1)
-		output = -result;
+	if (sg == -1)
+		put = -res;
 	else
-		output = result;
+		put = res;
 
-	return (output);
+	return (put);
 }
 

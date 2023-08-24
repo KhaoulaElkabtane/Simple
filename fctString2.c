@@ -1,21 +1,21 @@
 #include "shell.h"
 
 /**
- * is_cmd - determines if a file is an executable command
- * @info: the info struct
- * @path: path to the file
+ * fctCmd - Check if a given path points to a regular file.
+ * @in: Pointer to the infocmd struct (not used in this function).
+ * @p: Path to be checked for regular file status.
  *
- * Return: 1 if true, 0 otherwise
+ * Return: 1 if the path points to a regular file, 0 otherwise.
  */
-int is_cmd(info_t *info, char *path)
+int fctCmd(infocmd *in, char *p)
 {
-	struct stat st;
+	struct stat str;
 
-	(void)info;
-	if (!path || stat(path, &st))
+	(void)in;
+	if (!p || stat(p, &str))
 		return (0);
 
-	if (st.st_mode & S_IFREG)
+	if (str.st_mode & S_IFREG)
 	{
 		return (1);
 	}
@@ -23,62 +23,62 @@ int is_cmd(info_t *info, char *path)
 }
 
 /**
- * dup_chars - duplicates characters
- * @pathstr: the PATH string
- * @start: starting index
- * @stop: stopping index
+ * fctduplicate - Create a duplicate substring from a given range in a string.
+ * @str: Pointer to the input string.
+ * @tart: Starting index of the substring.
+ * @top: Ending index of the substring.
  *
- * Return: pointer to new buffer
+ * Return: Pointer to the duplicated substring.
  */
-char *dup_chars(char *pathstr, int start, int stop)
+char *fctduplicate(char *str, int tart, int top)
 {
-	static char buf[1024];
-	int i = 0, k = 0;
+	static char buffur[1024];
+	int i = 0, j = 0;
 
-	for (k = 0, i = start; i < stop; i++)
-		if (pathstr[i] != ':')
-			buf[k++] = pathstr[i];
-	buf[k] = 0;
-	return (buf);
+	for (j = 0, i = tart; i < top; i++)
+		if (str[i] != ':')
+			buffer[j++] = str[i];
+	buffer[k] = 0;
+	return (buffer);
 }
 
 /**
- * find_path - finds this cmd in the PATH string
- * @info: the info struct
- * @pathstr: the PATH string
- * @cmd: the cmd to find
+ * fctpath - Find and return the full path of a command.
+ * @in: Pointer to infocmd struct.
+ * @str: Colon-separated paths.
+ * @cd: Command name.
  *
- * Return: full path of cmd if found or NULL
+ * Return: Full path if found, else NULL.
  */
-char *find_path(info_t *info, char *pathstr, char *cmd)
+char *fctpath(infocmd *in, char *str, char *cd)
 {
-	int i = 0, curr_pos = 0;
-	char *path;
+	int i = 0, position = 0;
+	char *ph;
 
-	if (!pathstr)
+	if (!str)
 		return (NULL);
-	if ((_strlen(cmd) > 2) && starts_with(cmd, "./"))
+	if ((strlength(cd) > 2) && startsWith(cd, "./"))
 	{
-		if (is_cmd(info, cmd))
-			return (cmd);
+		if (fctCmd(in, cd))
+			return (cd);
 	}
 	while (1)
 	{
-		if (!pathstr[i] || pathstr[i] == ':')
+		if (!str[i] || str[i] == ':')
 		{
-			path = dup_chars(pathstr, curr_pos, i);
-			if (!*path)
-				_strcat(path, cmd);
+			ph = fctduplicate(str, position, i);
+			if (!*ph)
+				strCat(ph, cd);
 			else
 			{
-				_strcat(path, "/");
-				_strcat(path, cmd);
+				strCat(ph, "/");
+				strCat(ph, cd);
 			}
-			if (is_cmd(info, path))
-				return (path);
-			if (!pathstr[i])
+			if (fctCmd(in, ph))
+				return (ph);
+			if (!str[i])
 				break;
-			curr_pos = i;
+			position = i;
 		}
 		i++;
 	}
