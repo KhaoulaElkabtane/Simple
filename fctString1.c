@@ -1,87 +1,86 @@
 #include "shell.h"
 
 /**
- * _strcpy - copies a string
- * @dest: the destination
- * @src: the source
+ * strcopy - Copy a string to another.
+ * @est: Destination string.
+ * @sc: Source string.
  *
- * Return: pointer to destination
+ * Return: Pointer to the destination string 'est'.
  */
-char *_strcpy(char *dest, char *src)
+char *strcopy(char *est, char *sc)
 {
 	int i = 0;
 
-	if (dest == src || src == 0)
-		return (dest);
-	while (src[i])
+	if (est == sc || sc == 0)
+		return (est);
+	while (sc[i])
 	{
-		dest[i] = src[i];
+		est[i] = sc[i];
 		i++;
 	}
-	dest[i] = 0;
-	return (dest);
+	est[i] = 0;
+	return (est);
 }
 
 /**
- * _strdup - duplicates a string
- * @str: the string to duplicate
+ * strduplicate - Create a duplicate of a string.
+ * @st: Source string to be duplicated.
  *
- * Return: pointer to the duplicated string
+ * Return: Pointer to the duplicated string, or NULL on failure.
  */
-char *_strdup(const char *str)
+char *strduplicate(const char *st)
 {
-	int length = 0;
-	char *ret;
+	int lg = 0;
+	char *r;
 
-	if (str == NULL)
+	if (st == NULL)
 		return (NULL);
-	while (*str++)
-		length++;
-	ret = malloc(sizeof(char) * (length + 1));
-	if (!ret)
+	while (*st++)
+		lg++;
+	r = malloc(sizeof(char) * (lg + 1));
+	if (!r)
 		return (NULL);
-	for (length++; length--;)
-		ret[length] = *--str;
-	return (ret);
+	for (lg++; lg--;)
+		ret[lg] = *--st;
+	return (r);
 }
 
 /**
- *_puts - prints an input string
- *@str: the string to be printed
+ * strputs - Print a string to stdout.
+ * @s: Source string to be printed.
  *
- * Return: Nothing
+ * Return: None.
  */
-void _puts(char *str)
+void strputs(char *s)
 {
 	int i = 0;
 
-	if (!str)
+	if (!s)
 		return;
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 	{
-		_putchar(str[i]);
+		_putchar(s[i]);
 		i++;
 	}
 }
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * _putchar - Write a character to stdout or flush buffer.
+ * @str: Character to be written or BUF_FLUSH to flush.
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: 1 after writing or flushing.
  */
-int _putchar(char c)
+int _putchar(char str)
 {
 	static int i;
-	static char buf[WRITE_BUF_SIZE];
+	static char buffer[WRITE_BUF_SIZE];
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (str == BUF_FLUSH || i >= WRITE_BUF_SIZE)
 	{
-		write(1, buf, i);
+		write(1, buffer, i);
 		i = 0;
 	}
-	if (c != BUF_FLUSH)
-		buf[i++] = c;
+	if (str != BUF_FLUSH)
+		buffer[i++] = str;
 	return (1);
 }
