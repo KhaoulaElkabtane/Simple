@@ -62,7 +62,7 @@ int fctConv(char *str)
 		{
 			fl = 1;
 			res *= 10;
-			res += (sg[i] - '0');
+			res += (str[i] - '0');
 		}
 		else if (fl == 1)
 			fl = 2;

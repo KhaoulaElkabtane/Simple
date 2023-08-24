@@ -22,7 +22,7 @@ int shellLoop(infocmd *in, char **str)
 		if (i != -1)
 		{
 			setInfo(in, str);
-			ret = findBuil(in);
+			ret = findbuil(in);
 			if (ret == -1)
 				pathCmd(in);
 		}
@@ -53,12 +53,12 @@ int shellLoop(infocmd *in, char **str)
 int findBuil(infocmd *in)
 {
 	int i, ret = -1;
-	builtin_t table[] = {
+	builtin_table table[] = {
 		{"exit", fctexit},
 		{"env", curEnv},
 		{"help", fcthelp},
 		{"history", printHistory},
-		{"setenv", setEnvVar},
+		{"setenv", setEnvVal},
 		{"unsetenv", unsetEnvVal},
 		{"cd", fctcurrent},
 		{"alias", manAlias},
@@ -150,7 +150,7 @@ void forkCmd(infocmd *in)
 		{
 			in->status = WEXITSTATUS(in->status);
 			if (in->status == 126)
-				erprint(info, "Permission denied\n");
+				erprint(in, "Permission denied\n");
 		}
 	}
 }

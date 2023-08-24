@@ -26,7 +26,7 @@ size_t lislength(const liststr *len)
  */
 char **listString(liststr *str)
 {
-	list_t *n = str;
+	liststr *no = str;
 	size_t i = lislength(str), j;
 	char **c;
 	char *st;
@@ -36,9 +36,9 @@ char **listString(liststr *str)
 	c = malloc(sizeof(char *) * (i + 1));
 	if (!c)
 		return (NULL);
-	for (i = 0; n; n = n->next, i++)
+	for (i = 0; no; no = no->next, i++)
 	{
-		st = malloc(_strlen(n->s) + 1);
+		st = malloc(strlength(no->s) + 1);
 		if (!st)
 		{
 			for (j = 0; j < i; j++)
@@ -47,7 +47,7 @@ char **listString(liststr *str)
 			return (NULL);
 		}
 
-		st = strcopy(st, n->s);
+		st = strcopy(st, no->s);
 		c[i] = st;
 	}
 	c[i] = NULL;
@@ -86,7 +86,7 @@ size_t fctlist(const liststr *lt)
  *
  * Return: Pointer to the found node or NULL if not found.
  */
-list_t *nodeStart(liststr *st, char *ch, char str)
+liststr *nodeStart(liststr *st, char *ch, char str)
 {
 	char *k = NULL;
 

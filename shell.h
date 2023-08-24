@@ -118,9 +118,9 @@ void pathCmd(infocmd *);
 void forkCmd(infocmd *);
 
 /* fctString2.c */
-int is_cmd(infocmd *, char *);
-char *dup_chars(char *, int, int);
-char *find_path(infocmd *, char *, char *);
+int fctCmd(infocmd *, char *);
+char *fctduplicate(char *, int, int);
+char *fctpath(infocmd *, char *, char *);
 
 /* loophsh.c */
 int loophsh(char **);
@@ -161,7 +161,7 @@ void *reallocMem(void *, unsigned int, unsigned int);
 int freemem(void **);
 
 /* fctString4.c */
-int fctactive(infocmd *);
+int fctActive(infocmd *);
 int fctDelim(char, char *);
 int fctAlphabetic(int);
 int fctConv(char *);
@@ -170,7 +170,7 @@ int fctConv(char *);
 int erconv(char *);
 void erprint(infocmd *, char *);
 int fctDecimal(int, int);
-char *convertnumber(long int, int, int);
+char *convnumber(long int, int, int);
 void fctremove(char *);
 
 /* builtin.c */
@@ -207,7 +207,7 @@ int setEnv(infocmd *, char *, char *);
 /* fctHistory.c */
 char *historyfile(infocmd *info);
 int creathistory(infocmd *info);
-int readhistory(infocmd *info);
+int readHistory(infocmd *info);
 int buildHistoList(infocmd *info, char *buf, int linecount);
 int renumHistory(infocmd *info);
 
@@ -230,6 +230,6 @@ int fctchain(infocmd *, char *, size_t *);
 void fctcheck(infocmd *, char *, size_t *, size_t, size_t);
 int repAlias(infocmd *);
 int repVars(infocmd *);
-int replString(char **, char *);
+int repString(char **, char *);
 
 #endif

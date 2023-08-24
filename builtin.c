@@ -21,7 +21,7 @@ int fctexit(infocmd *in)
 			eputchar('\n');
 			return (1);
 		}
-		in->err_num = erprint(in->argv[1]);
+		in->err_num = erconv(in->argv[1]);
 		return (-2);
 	}
 	in->err_num = -1;
@@ -44,15 +44,15 @@ int fctcurrent(infocmd *in)
 		strputs("TODO: >>getcwd failure emsg here<<\n");
 	if (!in->argv[1])
 	{
-		d = getVarEnv(info, "HOME=");
+		d = getVarEnv(in, "HOME=");
 		if (!d)
-			ret = chdir((d = getVarEnv(info, "PWD=")) ? d : "/");
+			ret = chdir((d = getVarEnv(in, "PWD=")) ? d : "/");
 		else
 			ret = chdir(d);
 	}
 	else if (strcomparison(in->argv[1], "-") == 0)
 	{
-		if (!getVarEnv(info, "OLDPWD="))
+		if (!getVarEnv(in, "OLDPWD="))
 		{
 			strputs(str);
 			_putchar('\n');

@@ -88,7 +88,7 @@ int repAlias(infocmd *in)
 		if (!st)
 			return (0);
 		free(in->argv[0]);
-		par = strFindchar(st->str, '=');
+		par = strFindchar(st->s, '=');
 		if (!par)
 			return (0);
 		par = strduplicate(par + 1);
@@ -122,13 +122,13 @@ int repVars(infocmd *in)
 		}
 		if (!strcomparison(in->argv[i], "$$"))
 		{
-			repString(&(info->argv[i]), strduplicate(convnumber(getpid(), 10, 0)));
+			repString(&(in->argv[i]), strduplicate(convnumber(getpid(), 10, 0)));
 			continue;
 		}
-		str = nodeStarts(in->env, &in->argv[i][1], '=');
+		str = nodeStart(in->env, &in->argv[i][1], '=');
 		if (str)
 		{
-			repString(&(info->argv[i]), strduplicate(strFindchar(str->s, '=') + 1));
+			repString(&(in->argv[i]), strduplicate(strFindchar(str->s, '=') + 1));
 			continue;
 		}
 		repString(&in->argv[i], strduplicate(""));

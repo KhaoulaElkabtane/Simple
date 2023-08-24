@@ -29,7 +29,7 @@ liststr *addTopNode(liststr **h, const char *s, int n)
 		}
 	}
 	new->next = *h;
-	*head = new;
+	*h = new;
 	return (new);
 }
 
