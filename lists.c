@@ -18,10 +18,10 @@ liststr *addTopNode(liststr **h, const char *s, int n)
 	if (!new)
 		return (NULL);
 	setMem((void *)new, 0, sizeof(liststr));
-	new->num = n;
+	new->n = n;
 	if (s)
 	{
-		new->str = strduplicate(s);
+		new->s = strduplicate(s);
 		if (!new->s)
 		{
 			free(new);
