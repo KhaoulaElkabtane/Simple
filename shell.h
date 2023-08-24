@@ -45,10 +45,10 @@ extern char **environ;
  */
 typedef struct liststr
 {
-	int num;
-	char *str;
+	int n;
+	char *s;
 	struct liststr *next;
-} list_t;
+} liststr;
 
 /**
  *struct passinfo - contains pseudo-arguements to pass into a function,
@@ -72,7 +72,7 @@ typedef struct liststr
  *@readfd: the fd from which to read line input
  *@histcount: the history line number count
  */
-typedef struct passinfo
+typedef struct info
 {
 	char *arg;
 	char **argv;
@@ -93,7 +93,7 @@ typedef struct passinfo
 	int cmd_buf_type; /* CMD_type ||, &&, ; */
 	int readfd;
 	int histcount;
-} info_t;
+} infocmd;
 
 #define INFO_INIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
@@ -107,8 +107,8 @@ typedef struct passinfo
 typedef struct builtin
 {
 	char *type;
-	int (*func)(info_t *);
-} builtin_table;
+	int (*func)(infocmd *);
+} builtin_t;
 
 
 /* shellLoop.c */
