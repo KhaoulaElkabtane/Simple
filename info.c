@@ -29,7 +29,7 @@ void _setinis(info_t *info, char **ar)
 	info->fname = ar[0];
 	if (info->arg)
 	{
-		info->argv = _strwords(info->arg, "\t");
+		info->argv = _strwords(info->arg, " \t");
 		if (!info->argv)
 		{
 			info->argv = malloc(sizeof(char *) * 2);
@@ -40,7 +40,8 @@ void _setinis(info_t *info, char **ar)
 			}
 		}
 		for (i = 0; info->argv && info->argv[i]; i++)
-			info->argc = i;
+			;
+		info->argc = i;
 		_realias(info);
 		var_replacing(info);
 	}

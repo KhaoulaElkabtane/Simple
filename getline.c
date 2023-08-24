@@ -13,7 +13,7 @@ ssize_t put_buffer(info_t *info, char **buffer, size_t *var)
 	ssize_t i = 0;
 	size_t var_nd = 0;
 
-	if (!var)
+	if (!*var)
 	{
 		free(*buffer);
 		*buffer = NULL;
@@ -23,6 +23,7 @@ ssize_t put_buffer(info_t *info, char **buffer, size_t *var)
 #else
 		i = next_line(info, buffer, &var_nd);
 #endif
+
 		if (i > 0)
 		{
 			if ((*buffer)[i - 1] == '\n')
@@ -33,7 +34,7 @@ ssize_t put_buffer(info_t *info, char **buffer, size_t *var)
 			info->linecount_flag = 1;
 			_rvcomments(*buffer);
 			history_list(info, *buffer, info->histcount++);
-			if (_strcharacter(*buffer, ';'))
+			/*if (_strcharacter(*buffer, ';'))*/
 			{
 				*var = i;
 				info->cmd_buf = buffer;

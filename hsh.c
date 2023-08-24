@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * shell_loop - main shell loop
  * @info : info struct
@@ -42,7 +41,6 @@ int shell_loop(info_t *info, char **arg)
 	}
 	return (ret);
 }
-
 
 /**
  * path_command - finds a command in path
