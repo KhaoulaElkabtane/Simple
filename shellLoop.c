@@ -22,7 +22,7 @@ int shellLoop(infocmd *in, char **str)
 		if (i != -1)
 		{
 			setInfo(in, str);
-			ret = findbuil(in);
+			ret = findBuil(in);
 			if (ret == -1)
 				pathCmd(in);
 		}

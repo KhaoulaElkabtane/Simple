@@ -113,7 +113,7 @@ typedef struct builtin
 
 /* shellLoop.c */
 int shellLoop(infocmd *, char **);
-int findbuil(infocmd *);
+int findBuil(infocmd *);
 void pathCmd(infocmd *);
 void forkCmd(infocmd *);
 

@@ -20,12 +20,12 @@ void erputs(char *s)
 }
 
 /**
- * _eputchar - Write a character to stderr or flush buffer.
+ * eputchar - Write a character to stderr or flush buffer.
  * @str: Character to be written or BUF_FLUSH to flush.
  *
  * Return: 1 after writing or flushing.
  */
-int _eputchar(char str)
+int eputchar(char str)
 {
 	static int i;
 	static char buffer[WRITE_BUF_SIZE];
@@ -69,7 +69,7 @@ int putfile(char str, int file)
  *
  * Return: Number of characters written.
  */
-int putsflie2(char *str, int file)
+int putsfile2(char *str, int file)
 {
 	int i = 0;
 
